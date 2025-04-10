@@ -6,74 +6,140 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visiting Card</title>
     <style>
-        body {
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #ece9e6, #ffffff);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #89f7fe, #66a6ff);
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
         }
+
         .card {
-            background: #fff;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            width: 350px;
-            padding: 20px;
+            background: #ffffff;
+            border-radius: 25px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            width: 380px;
+            padding: 25px;
             text-align: center;
-            animation: fadeInUp 1s ease;
+            position: relative;
+            animation: slideIn 1.2s ease-in-out;
         }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ff6ec4, #7873f5);
+            z-index: -1;
+            border-radius: 25px;
+            transform: rotate(-2deg);
+        }
+
         .card img.profile {
             width: 120px;
             height: 120px;
             border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid #4CAF50;
+            border: 5px solid #66a6ff;
+            margin-bottom: 15px;
+            transition: transform 0.4s ease;
         }
-        .card h2 {
-            margin: 15px 0 5px;
+
+        .card img.profile:hover {
+            transform: scale(1.1);
+        }
+
+        h2 {
             color: #333;
+            margin-bottom: 5px;
         }
-        .card h4 {
-            margin: 0;
+
+        h4 {
             color: #666;
+            margin-bottom: 10px;
         }
-        .card p {
-            margin: 10px 0;
+
+        p {
             font-size: 14px;
             color: #444;
+            margin: 8px 0;
         }
-        .card .contact {
-            margin-top: 15px;
-            font-size: 14px;
+
+        .contact p {
+            font-weight: 500;
             color: #333;
         }
+
         .social-links {
-            margin-top: 10px;
+            margin-top: 12px;
         }
+
         .social-links a {
-            margin: 0 8px;
+            margin: 0 10px;
             text-decoration: none;
             font-size: 18px;
-            color: #4CAF50;
+            color: #7873f5;
+            transition: color 0.3s ease;
         }
+
+        .social-links a:hover {
+            color: #ff6ec4;
+        }
+
         .qr-code {
-            margin-top: 15px;
+            margin-top: 20px;
+            animation: fadeIn 2s ease;
         }
+
         .qr-code img {
-            width: 80px;
-            height: 80px;
+            width: 90px;
+            height: 90px;
+            border: 2px dashed #666;
+            padding: 5px;
+            border-radius: 10px;
         }
-        @keyframes fadeInUp {
+
+        .location a {
+            display: inline-block;
+            margin-top: 10px;
+            color: #ff6ec4;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .location a:hover {
+            color: #7873f5;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(20px);
             }
             to {
                 opacity: 1;
-                transform: translateY(0);
             }
         }
     </style>
@@ -82,13 +148,15 @@
     <div class="card">
         <img src="image.png" alt="Saravanan M" class="profile">
         <h2>Saravanan M</h2>
-        <h4>Entrepreneur and Tech enthusiast</h4>
+        <h4>Entrepreneur and Tech Enthusiast</h4>
         <p>CSBS Student | Entrepreneur | Passionate About Technology & Business Growth</p>
         <div class="contact">
             <p>Email: saropersonal1@gmail.com</p>
             <p>Phone: +91 9344073675</p>
         </div>
-<div class="location"><p><a href="https://www.google.com/maps/search/?api=1&query=X2HP+55Q+Karur,+Tamil+Nadu" target="_blank">View Location on Map</a></p></div>
+        <div class="location">
+            <a href="https://www.google.com/maps/search/?api=1&query=X2HP+55Q+Karur,+Tamil+Nadu" target="_blank">📍 View Location on Map</a>
+        </div>
         <div class="social-links">
             <a href="https://linkedin.com" target="_blank">LinkedIn</a>
             <a href="https://github.com" target="_blank">GitHub</a>
